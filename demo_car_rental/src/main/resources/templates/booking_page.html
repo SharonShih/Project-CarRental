@@ -147,38 +147,38 @@
 <div class="row" style="margin: 10px;">
     <div class="col-75">
         <div class="container">
-                <label style="margin-top: 20px; font-size: 28px;"><i class="fa fa-map-marker"></i> <b>Pick Up and Drop Off Location</b></label>
-                <div class="row">
-                    <div class="col-50">
-                        <h3>Pick Up Address</h3>
-                        <text th:text="${tempRent.pickUp}">Pick Up Address</text>
-                    </div>
-                    <div class="col-50">
-                        <h3>Drop Off Address</h3>
-                        <text th:text="${tempRent.dropOff}">Drop Off Address</text>
-                    </div>
+            <label style="margin-top: 20px; font-size: 28px;"><i class="fa fa-map-marker"></i> <b>Pick Up and Drop Off Location</b></label>
+            <div class="row">
+                <div class="col-50">
+                    <h3>Pick Up Address</h3>
+                    <text th:text="${tempRent.pickUp}">Pick Up Address</text>
                 </div>
-
-                <label style="margin-top: 20px; font-size: 25px;"><i class="fa fa-calendar"></i> <b>Booked Dates</b></label>
-
-                <div class="row">
-                    <div class="col-50">
-                        <h3>Pick Up Date/Time</h3>
-                        <text><th:block th:text="${tempRent.startDate}">start date</th:block> After 6:00am(PDT)</text>
-                    </div>
-                    <div class="col-50">
-                        <h3>Return Date/Time</h3>
-                        <text><th:block th:text="${tempRent.endDate}">end date</th:block> Before 5:00pm(PDT)</text>
-                    </div>
+                <div class="col-50">
+                    <h3>Drop Off Address</h3>
+                    <text th:text="${tempRent.dropOff}">Drop Off Address</text>
                 </div>
+            </div>
+
+            <label style="margin-top: 20px; font-size: 25px;"><i class="fa fa-calendar"></i> <b>Booked Dates</b></label>
+
+            <div class="row">
+                <div class="col-50">
+                    <h3>Pick Up Date/Time</h3>
+                    <text><th:block th:text="${tempRent.startDate}">start date</th:block> After 6:00am(PDT)</text>
+                </div>
+                <div class="col-50">
+                    <h3>Return Date/Time</h3>
+                    <text><th:block th:text="${tempRent.endDate}">end date</th:block> Before 5:00pm(PDT)</text>
+                </div>
+            </div>
 
 
 
-                <hr>
+            <hr>
 
-                <div class="row">
-                    <div class="col-50">
-                        <form action="#" th:action="@{/booking(id=${car.id})}" th:object="${rent}" method="post">
+            <div class="row">
+                <div class="col-50">
+                    <form action="#" th:action="@{/booking(id=${car.id})}" th:object="${rent}" method="post">
                         <h3><i class="fa fa-user"></i> Main Driver's Info </h3>
                         <div class="row">
                             <div class="col-50">
@@ -193,15 +193,15 @@
 
                         <label for="phone1"><i class="fa fa-phone"></i> Phone Number</label>
                         <input type="text" id="phone1" name="phone1" placeholder="xxx-xxx-xxxx" th:field="*{phone}" required>
-                            <label class="bday1">Driver's Birth Date:</label>
-                            <input type="date" class="" name="bday1" th:field="*{driverBirth}" required>
+                        <label class="bday1">Driver's Birth Date:</label>
+                        <input type="date" class="" name="bday1" th:field="*{driverBirth}" required>
 
                         <text style="margin: 20px;"><span class="w3-tag w3-red"><b>Attention!</b></span>Driver whose is younger than 18 years old are not eligibale to rent a car (Will check ID at the counter)</text>
-                    </div>
-
-                    
-
                 </div>
+
+
+
+            </div>
         </div>
 
         <input type="submit" value="Confirm Your Booking" class="btn">
