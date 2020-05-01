@@ -112,15 +112,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body  class="w3-light-grey">
-    <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
-        <a href="welcome_page.html" class="w3-bar-item w3-button w3-text-blue w3-hover-blue"><b><i class="fa fa-car w3-margin-right"></i>Car Rental.com</b></a>
-        <div href="#" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><i class="fa fa-search"></i></div>
-        <a href="login_page.html" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><b><i class="fa fa-lock w3-margin-right"></i>Sign In</b></a>
-    </div>
-
-    <img src="https://www.lufthansa.com/content/dam/lh/images/local_images/ancillary/lh_anc_car_pano_XL_en.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
-         alt="Title">
-
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+    <a href="welcome" class="w3-bar-item w3-button w3-text-blue w3-hover-blue"><b><i class="fa fa-car w3-margin-right"></i>Car Rental.com</b></a>
+    <div href="#" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><i class="fa fa-search"></i></div>
+    <a href="login" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><b><i class="fa fa-lock w3-margin-right"></i>Sign In</b></a>
+</div>
+<div class="img-container">
+<img src="https://www.lufthansa.com/content/dam/lh/images/local_images/ancillary/lh_anc_car_pano_XL_en.jpg.transform/lh-dcep-transform-width-1440/img.jpg"
+     alt="Title">
+</div>
 <div>
     <form class="form">
         <label class="pickup">Pick-Up Date:</label>
@@ -141,78 +141,15 @@
         <th>SUV</th>
     </tr>
     <!-- Nissan -->
-    <tr>
+    <tr th:each="car: ${cars}">
         <td>
             <img src="https://cars.usnews.com/static/images/Auto/izmo/i62379717/2018_nissan_versa_note_angularfront.jpg"
                  alt="eco_Versa" width="80%"><br>
-            <h1>$65/day</h1>
+            <p th:text="${car.name}"/p>
+            <h1 th:text="${car.price}"/h1>
             <img src="https://i.ibb.co/y8X60RW/eco-p.png" alt="Eco_p" width="70%">
             <img src="https://i.ibb.co/VjYx7dR/eco-b.png" alt="Eco_b" width="70%">
-            <button class="button_2" type="submit">Reserve Now</button>
-        </td>
-        <td>
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i113036073/2019_nissan_sentra_angularfront.jpg"
-                 alt="compact_sentra" width="80%">
-            <h2>$95/day</h2>
-            <img src="https://i.ibb.co/LYqyVxF/eco-p1.png" alt="Com_p" width="70%">
-            <img src="https://i.ibb.co/VjYx7dR/eco-b.png" alt="Com_b" width="70%">
-            <button class="button_2" type="submit">Reserve Now</button>
-        </td>
-        <td>
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i9858255/2017_nissan_rogue_angularfront.jpg"
-                 alt="suv_rogue" width="80%">
-            <h3>$115/day</h3>
-            <img src="https://i.ibb.co/LYqyVxF/eco-p1.png" alt="Suv_p" width="70%">
-            <img src="https://i.ibb.co/sJ33yds/suv-b.png" width="70%">
-            <button class="button_2" type="submit">Reserve Now</button>
-        </td>
-    </tr>
-        <!-- Toyota -->
-    <tr>
-        <td>
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i4483/2014_toyota_yaris_angularfront.jpg" alt="Eco_toyota" width="80%">
-            <h1>$65/day</h1>
-            <img src="https://i.ibb.co/y8X60RW/eco-p.png" alt="Eco_p" width="70%">
-            <img src="https://i.ibb.co/VjYx7dR/eco-b.png" alt="Eco_b" width="70%">
-            <button class="button_2" type="submit">Reserve Now</button>
-        </td>
-    <td>
-        <img src="https://cars.usnews.com/static/images/Auto/izmo/i124589149/2020_toyota_corolla_angularfront.jpg" alt="com_corolla" width="80%">
-        <h2>$95/day</h2>
-        <img src="https://i.ibb.co/LYqyVxF/eco-p1.png" alt="Com_p" width="70%">
-        <img src="https://i.ibb.co/VjYx7dR/eco-b.png" alt="Com_b" width="70%">
-        <button class="button_2" type="submit">Reserve Now</button>
-    </td>
-    <td>
-        <img src="https://cars.usnews.com/static/images/Auto/izmo/i44062349/2018_toyota_rav4_angularfront.jpg" alt="suv_rav" width="80%">
-        <h3>$115/day</h3>
-        <img src="https://i.ibb.co/LYqyVxF/eco-p1.png" alt="Suv_p" width="70%">
-        <img src="https://i.ibb.co/sJ33yds/suv-b.png" width="70%">
-        <button class="button_2" type="submit">Reserve Now</button>
-    </td>
-    </tr>
-    <!-- Ford -->
-    <tr>
-        <td>
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i105104134/2019_ford_fiesta_angularfront.jpg" alt="Eco_ford" width="80%">
-            <h1>$65/day</h1>
-            <img src="https://i.ibb.co/y8X60RW/eco-p.png" alt="Eco_p" width="70%">
-            <img src="https://i.ibb.co/VjYx7dR/eco-b.png" alt="Eco_b" width="70%">
-            <button class="button_2" type="submit">Reserve Now</button>
-        </td>
-        <td>
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i51570132/2018_ford_focus_angularfront.jpg" alt="Com_ford" width="80%">
-            <h2>$95/day</h2>
-            <img src="https://i.ibb.co/LYqyVxF/eco-p1.png" alt="Com_p" width="70%">
-            <img src="https://i.ibb.co/VjYx7dR/eco-b.png" alt="Com_b" width="70%">
-            <button class="button_2" type="submit">Reserve Now</button>
-        </td>
-        <td>
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i111746020/2019_ford_edge_angularfront.jpg" alt="suv_ford" width="80%">
-            <h3>$115/day</h3>
-            <img src="https://i.ibb.co/LYqyVxF/eco-p1.png" alt="Suv_p" width="70%">
-            <img src="https://i.ibb.co/sJ33yds/suv-b.png" width="70%">
-            <button class="button_2" type="submit">Reserve Now</button>
+            <button class="button_2">Reserve Now</button>
         </td>
     </tr>
 </table>
