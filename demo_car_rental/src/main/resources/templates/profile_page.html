@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Account</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;
+    background-image: url("")}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 1px;
+        background-color: black;
+        padding: 1px;
+    }
+
+    .grid-container > div {
+        background-color: white;
+        text-align: left;
+        padding: 20px 0;
+        font-size: 30px;
+    }
+
+    .item1, .item2, .item3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        display: flex;
+        justify-content: left;
+        margin-left:10px
+    }
+
+</style>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-blue w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+        <h3 class="w3-padding-64"><b>User<br>Profile</b></h3>
+    </div>
+    <div class="w3-bar-block">
+        <a href="#profile" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Profile</a>
+        <a href="#history" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Rental History</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact Us</a>
+        <a href="home_page.html" class="w3-bar-item w3-button w3-hover-white"><br><i class="fa fa-arrow-left fa-fw w3-margin-right"></i> Back to Home</a>
+    </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-blue w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-blue w3-margin-right" onclick="w3_open()">☰</a>
+</header>
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:20px" id="profile">
+        <h1 class="w3-jumbo"><b>Your Account Information</b></h1>
+        <h1 class="w3-xxxlarge w3-text-blue"><b>Profile Detail.</b></h1>
+        <hr style="width:50px;border:5px solid dodgerblue" class="w3-round">
+        <h3> <span class="w3-tag w3-black">First Name:</span> Jane</h3>
+        <h3> <span class="w3-tag w3-blue">Last Name:</span> Smith</h3>
+        <h3> <span class="w3-tag w3-black">Email:</span> Smith@123mail.com</h3>
+        <h3> <span class="w3-tag w3-blue">Phone Number:</span> 415-123-4567</h3>
+    </div>
+
+
+    <!-- Rent History -->
+    <div class="w3-container" id="history" style="margin-top:40px">
+        <h1 class="w3-xxxlarge w3-text-blue"><b>Rental History.</b></h1>
+        <hr style="width:50px;border:5px solid dodgerblue" class="w3-round">
+    </div>
+
+    <!-- Rent History -->
+    <div class="grid-container">
+        <div class="item1">
+            <img src="https://cars.usnews.com/static/images/Auto/izmo/i9858255/2017_nissan_rogue_angularfront.jpg"
+                                alt="suv_rogue" width="30%"><text style="margin-left: 50px;">SUV
+            <h4 class="w3-text-blue"><i class="fa fa-users fa-fw w3-margin-right"></i> 7 Passengers
+            <br><i class="fa fa-suitcase fa-fw w3-margin-right"></i> 2 Suitcases
+            <br><i class="fa fa-money fa-fw w3-margin-right"></i> $115/per day
+            <br><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 12th, 2020 - Jan 15th, 2020
+            <br><i class="fa fa-map-marker fa-fw w3-margin-right"></i>San Jose, CA - San Jose, CA</h4>
+        </text>
+        </div>
+        <div class="item2">
+            <img src="https://cars.usnews.com/static/images/Auto/izmo/i62379717/2018_nissan_versa_note_angularfront.jpg"
+                 alt="suv_rogue" width="30%"><text style="margin-left: 50px;">Eco
+            <h4 class="w3-text-blue"><i class="fa fa-users fa-fw w3-margin-right"></i> 4 Passengers
+                <br><i class="fa fa-suitcase fa-fw w3-margin-right"></i> 1 Suitcases
+                <br><i class="fa fa-money fa-fw w3-margin-right"></i> $65/per day
+                <br><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar. 25th, 2020 - March 26th, 2020
+                <br><i class="fa fa-map-marker fa-fw w3-margin-right"></i>Seattle, WA - San Jose, CA</h4>
+            </text>
+        </div>
+        <div class="item3">
+            <img src="https://cars.usnews.com/static/images/Auto/izmo/i113036073/2019_nissan_sentra_angularfront.jpg"
+                 alt="suv_rogue" width="30%"><text style="margin-left: 50px;">Compact
+            <h4 class="w3-text-blue" style="text-align: left"><i class="fa fa-users fa-fw w3-margin-right"></i> 5 Passengers
+                <br><i class="fa fa-suitcase fa-fw w3-margin-right"></i> 2 Suitcases
+                <br><i class="fa fa-money fa-fw w3-margin-right"></i> $95/per day
+                <br><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 1st, 2020 - April 10th, 2020
+                <br><i class="fa fa-map-marker fa-fw w3-margin-right"></i>Los Angeles, CA - Las Vegas, NV</h4>
+        </text>
+        </div>
+    </div>
+
+    </div>
+
+
+    <!-- Contact -->
+    <div class="w3-container" id="contact" style="margin-top:40px; margin-left:320px;">
+        <h1 class="w3-xxxlarge w3-text-blue"><b>Contact.</b></h1>
+        <hr style="width:50px;border:5px solid dodgerblue" class="w3-round">
+        <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+        <form action="/action_page.php" target="_blank">
+            <div class="w3-section">
+                <label>Name</label>
+                <input class="w3-input w3-border" type="text" name="Name" required>
+            </div>
+            <div class="w3-section">
+                <label>Email</label>
+                <input class="w3-input w3-border" type="text" name="Email" required>
+            </div>
+            <div class="w3-section">
+                <label>Message</label>
+                <input class="w3-input w3-border" type="text" name="Message" required>
+            </div>
+            <button type="submit" class="w3-button w3-block w3-padding-large w3-blue w3-margin-bottom">Send Message</button>
+        </form>
+    </div>
+
+    <!-- End page content -->
+</div>
+
+<script>
+    // Script to open and close sidebar
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+</script>
+
+</body>
+</html>
