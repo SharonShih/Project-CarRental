@@ -23,11 +23,11 @@ public class Customer implements Serializable {
     private int id;
 
     @Size(min = 2, max = 50)
-    @Column(name = "login", length = 50)
-    private String login;
+    @Column(name = "username", length = 50)
+    private String username;
 
     @Size(min = 5, max = 60)
-    @Column(name = "cus_password", length = 60)
+    @Column(name = "password", length = 60)
     private String password;
 
     @Size(min = 2, max = 50)
@@ -48,12 +48,12 @@ public class Customer implements Serializable {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

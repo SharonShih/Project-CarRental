@@ -166,7 +166,7 @@
 
     <div class="container center">
 
-        <form action="/action_page.php">
+        <form action="#" th:action="@{/signup}" th:object="${customer}" method="post">
             <div class="row">
                 <h2 style="text-align:center; padding: 30px;">Sign Up with Social Media or Manually</h2>
                 <div class="vl">
@@ -190,10 +190,10 @@
                         <p>Or sign in manually:</p>
                     </div>
 
-                    <input type="text" name="username" placeholder="Username" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-                    <input type="submit" value="Login">
+                    <input type="text" th:field="*{username}" name="username" placeholder="Username" required>
+                    <input type="password" th:field="*{password}" name="password" placeholder="Password" required>
+                    <input type="submit" value="Sign up">
+                    <p class="text-success" th:utext="${successMessage}" style="font-size: 20; color: #FF1C19;"></p>
                 </div>
 
             </div>

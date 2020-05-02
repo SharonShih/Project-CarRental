@@ -166,7 +166,7 @@
 
 <div class="container center">
 
-    <form action="/action_page.php">
+    <form th:action="@{/login}" th:object="${custom}" method="post">
         <div class="row">
             <h2 style="text-align:center; padding: 30px;">Login with Social Media or Manually</h2>
             <div class="vl">
@@ -193,6 +193,7 @@
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Login">
+                <p th:if="${param.error}" style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please verify</p>
             </div>
 
         </div>
@@ -202,7 +203,7 @@
 <div class="bottom-container center">
     <div class="row">
         <div class="col">
-            <a href="singup" style="color:white; background-color: #4387d9;" class="btn">Sign Up</a>
+            <a href="signup" style="color:white; background-color: #4387d9;" class="btn">Sign Up</a>
         </div>
         <div class="col">
             <a href="#" style="color:white" class="btn">Forgot password?</a>

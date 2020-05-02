@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 90%;
+            margin: 5px auto;
+            position: relative;
+            text-align:center;
+        }
+        .box {
+            display: inline-block;
+            width: 450px;
+            height: 550px;
+            margin: 10px 10px 10px 10px;
+            border: 1px solid rgba(117, 117, 117, 0.52);
+            border-collapse: collapse;
+        }
         /* Title image */
         .img-container {
             display: block;
@@ -134,24 +151,19 @@
     <p th:text="'Hello, ' + ${name} + '!'"/>
 </div>
 
-<table align="center">
-    <tr style="font-family: 'Arapey', serif;">
-        <th>Economy</th>
-        <th>Compact</th>
-        <th>SUV</th>
-    </tr>
-    <!-- Nissan -->
-    <tr th:each="car: ${cars}">
-        <td>
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i62379717/2018_nissan_versa_note_angularfront.jpg"
-                 alt="eco_Versa" width="80%"><br>
-            <p th:text="${car.name}"/p>
-            <h1 th:text="${car.price}"/h1>
+    <div class="container">
+        <div th:each="car: ${cars}" class="box">
+            <th:block>
+                <img th:src="${car.url}"
+                    alt="eco_Versa" width="90%"><br>
+                <p th:text="${car.name}">name</p>
+                <p th:text="${car.price}">price</p>
+            </th:block>
             <img src="https://i.ibb.co/y8X60RW/eco-p.png" alt="Eco_p" width="70%">
             <img src="https://i.ibb.co/VjYx7dR/eco-b.png" alt="Eco_b" width="70%">
             <button class="button_2">Reserve Now</button>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+
 </body>
 </html>
