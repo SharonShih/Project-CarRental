@@ -24,7 +24,7 @@ public class Car implements Serializable {
 
     @Id
     @Column(name = "car_id")
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
