@@ -1,7 +1,7 @@
 package com.example.demo_car_rental.repository;
 
 import com.example.demo_car_rental.model.AvailableCar;
-import com.example.demo_car_rental.model.RentDate;
+import com.example.demo_car_rental.model.Rent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,12 +11,12 @@ import java.util.Calendar;
 import java.util.List;
 
 @Repository
-public interface RentDateDAO extends JpaRepository<RentDate, Long> {
-    RentDate findByCustomerId(Long id);
-    RentDate findByCarId(Long id);
-    List<RentDate> findAll();
+public interface RentDAO extends JpaRepository<Rent, Long> {
+    Rent findByCustomerId(Long id);
+    Rent findByCarId(Long id);
+    List<Rent> findAll();
 
-
+/*
     @Query("select NEW com.example.demo_car_rental.model.AvailableCar"+
             "(b.id, b.car.id, b.car.name, b.car.price)"+
             "from RentDate as b "+
@@ -42,5 +42,5 @@ public interface RentDateDAO extends JpaRepository<RentDate, Long> {
             "OR :endDate between bd.startDate and bd.endDate)")
     List<AvailableCar> checkAvailableCarById(@Param("startDate") Calendar startDate,
                                                     @Param("endDate") Calendar endDate,
-                                                    @Param("carId") Long id);
+                                                    @Param("carId") Long id);*/
 }

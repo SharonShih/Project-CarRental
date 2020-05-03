@@ -26,11 +26,6 @@ public class CarServiceImplement implements CarService {
     }
 
     @Override
-    public List<Car> newCars() {
-        return this.carDAO.newCars();
-    }
-
-    @Override
     public List<Car> findAll() {
         return (List<Car>) carDAO.findAll();
     }

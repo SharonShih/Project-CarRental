@@ -7,11 +7,11 @@ import java.util.Calendar;
 
 @Entity
 @Table(name = "rent_date")
-public class RentDate implements Serializable {
+public class Rent implements Serializable {
 
     private static final long serialVersionUID = -1713505055304086201L;
 
-    public RentDate() {
+    public Rent() {
         super();
     }
 
@@ -25,13 +25,19 @@ public class RentDate implements Serializable {
 
     @Column(name = "end_date")
     private Calendar endDate;
+    
+    @Column(name = "pick_up", length = 120)
+    private String pickUp;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_id")
+	@Column(name = "drop_off", length = 120)
+    private String dropOff;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "car_id", referencedColumnName = "car_id")
     private Car car;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     private Customer customer;
 
     public int getId() {
@@ -57,6 +63,22 @@ public class RentDate implements Serializable {
     public void setEndDate(Calendar endDate) {
         this.endDate = endDate;
     }
+    
+    public String getPickUp() {
+		return pickUp;
+	}
+
+	public void setPickUp(String pickUp) {
+		this.pickUp = pickUp;
+	}
+
+    public String getDropOff() {
+		return dropOff;
+	}
+
+	public void setDropOff(String dropOff) {
+		this.dropOff = dropOff;
+	}
 
     public Car getCar() {
         return car;
@@ -70,7 +92,7 @@ public class RentDate implements Serializable {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer_id(Customer customer) {
         this.customer = customer;
     }
 }

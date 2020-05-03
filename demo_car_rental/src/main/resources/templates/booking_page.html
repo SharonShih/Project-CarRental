@@ -126,19 +126,19 @@
             <p><th:block th:text="${car.name}">name </th:block> <span class="price">$<th:block th:text="${car.price}">price</th:block>/per day</span></p>
 
             <p>
-                <text>Booking dates: 5/1/2020 - 5/4-2020</text>
-                <span class="price">x 4 days</span></p>
+                <text>Booking dates: <th:block th:text="${tempRent.startDate}">start date</th:block> - <th:block th:text="${tempRent.endDate}">end date</th:block></text>
+                <span class="price">x <th:block th:text="${tempRent.rentDays}">rent days</th:block> days</span></p>
             <p>
                 <text>Total before Tax</text>
-                <span class="price">$460.00</span></p>
+                <span class="price">$<th:block th:text="${tempRent.beforeTax}">before Tax</th:block>.00</span></p>
             <p>
                 <text>Sales Tax(7.25%)</text>
-                <span class="price">$33.35</span></p>
+                <span class="price">$<th:block th:text="${tempRent.tax}">Tax</th:block></span></p>
             <p>
                 <text>Fee</text>
                 <span class="price">$0.00</span></p>
             <hr>
-            <p>Total <span class="price" style="color:black"><b>$493.35</b></span></p>
+            <p>Total <span class="price" style="color:black"><b>$<th:block th:text="${tempRent.totalPrice}">total</th:block></b></span></p>
             <h3><span class="w3-tag w3-red"><b>NOTE!</b></span> <span class="w3-tag ">Total cost will be charged at pick up counter.</span></h3>
         </div>
     </div>
@@ -148,17 +148,16 @@
     <div class="col-75">
         <div class="container">
             <form action="/action_page.php">
-                <label style="margin-top: 20px; font-size: 28px;"><i class="fa fa-map-marker"></i> <b>Pick Up
-                    Location</b></label>
+                <label style="margin-top: 20px; font-size: 28px;"><i class="fa fa-map-marker"></i> <b>Pick Up and Drop Off Location</b></label>
 
                 <div class="row">
                     <div class="col-50">
-                        <h3>Address</h3>
-                        <text>1 Washington Sq, San Jose, CA 95192</text>
+                        <h3>Pick Up Address</h3>
+                        <text th:text="${tempRent.pickUp}">Pick Up Address</text>
                     </div>
                     <div class="col-50">
-                        <h3>Contact number</h3>
-                        <text>408-000-1111</text>
+                        <h3>Drop Off Address</h3>
+                        <text th:text="${tempRent.dropOff}">Drop Off Address</text>
                     </div>
                 </div>
 
@@ -167,11 +166,11 @@
                 <div class="row">
                     <div class="col-50">
                         <h3>Pick Up Date/Time</h3>
-                        <text> May 1st, 2020 After 6:00am(PDT)</text>
+                        <text><th:block th:text="${tempRent.startDate}">start date</th:block> After 6:00am(PDT)</text>
                     </div>
                     <div class="col-50">
                         <h3>Return Date/Time</h3>
-                        <text>May 4th, 2020 Before 5:00pm(PDT)</text>
+                        <text><th:block th:text="${tempRent.endDate}">end date</th:block> Before 5:00pm(PDT)</text>
                     </div>
                 </div>
 

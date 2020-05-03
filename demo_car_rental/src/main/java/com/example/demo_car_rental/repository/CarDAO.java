@@ -9,11 +9,6 @@ import java.util.List;
 
 @Repository
 public interface CarDAO extends JpaRepository<Car, Integer> {
-
-
-    @Query("from Car as c where c.id not in (select b.car.id from RentDate as b)")
-    List<Car> newCars();
-
     List<Car> findAll();
     Car findById(Long id);
 }

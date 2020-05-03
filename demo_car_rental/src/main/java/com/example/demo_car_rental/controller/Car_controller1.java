@@ -3,10 +3,10 @@ package com.example.demo_car_rental.controller;
 import com.example.demo_car_rental.model.AvailableCar;
 import com.example.demo_car_rental.model.Car;
 import com.example.demo_car_rental.model.Customer;
-import com.example.demo_car_rental.model.RentDate;
+import com.example.demo_car_rental.model.Rent;
 import com.example.demo_car_rental.service.CarService;
 import com.example.demo_car_rental.service.CustomerService;
-import com.example.demo_car_rental.service.RentDateService;
+import com.example.demo_car_rental.service.RentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ import java.util.List;
 @RestController
 @SessionAttributes(value = {"customer", "rentDate"})
 public class Car_controller1 {
-
+/*
     @Autowired
     private CarService carService;
     @Autowired
@@ -38,7 +38,7 @@ public class Car_controller1 {
         this.rentDateService = rentDateService;
         this.customerService = customerService;
     }
-
+    /*
     @RequestMapping(value = "/bookPartOne{car_id}", method = RequestMethod.GET)
     public String checkDates(Model model, @RequestParam(value = "car_id") Long CarId,
                              @RequestParam(value = "start_date", defaultValue = "1800-01-01", required = false)
@@ -62,12 +62,12 @@ public class Car_controller1 {
         //customer.getCars().add(car);
         //customer.setRentCars(customer.getRentCars() + 1);
         //customer.setTotalPrice(customer.getTotalPrice());
-        rentDate.setCar(car);
+        //rentDate.setCar(car);
         rentDate.setStartDate(startDate);
         rentDate.setEndDate(endDate);
         redirectAttributes.addAttribute("car_id", CarId);
         return "redirect:/bookPartTwo";
-    }
+    }*/
 
 
 /*

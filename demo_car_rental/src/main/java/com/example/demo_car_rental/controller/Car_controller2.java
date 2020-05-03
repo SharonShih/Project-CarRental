@@ -3,7 +3,7 @@ package com.example.demo_car_rental.controller;
 
 import com.example.demo_car_rental.model.Car;
 import com.example.demo_car_rental.model.Customer;
-import com.example.demo_car_rental.model.RentDate;
+import com.example.demo_car_rental.model.Rent;
 import com.example.demo_car_rental.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +29,7 @@ public class Car_controller2 {
     }
 
     @RequestMapping(value = "bookPartTwo", method = RequestMethod.POST)
-    public @ResponseBody String completeCustomer(Customer customer, RentDate rentDate, RedirectAttributes redirectAttributes,
+    public @ResponseBody String completeCustomer(Customer customer, Rent rentDate, RedirectAttributes redirectAttributes,
                                    @RequestParam(value = "car_id") Long CarId){
         redirectAttributes.addAttribute("car_id", CarId);
         return "redirect:/bookPartThree";

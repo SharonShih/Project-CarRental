@@ -40,21 +40,27 @@
         <div id="Car" class="w3-container w3-white w3-padding-16 myLink">
             <h3>Best car rental in the world!</h3>
             <p><span class="w3-tag w3-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with <span class=" w3-blue">Car Rental.com</span></p>
+            <form action="#" th:action="@{/tempForm}" th:object="${tempRent}" method="post">
             <div class="w3-row-padding" style="margin:0 -16px;">
                 <div class="w3-half">
                     <label for="city"><i class="fa fa-map-marker"></i> Pick Up Location</label>
-                    <input class="w3-input w3-border" type="text" id="city" name="city" placeholder="San Jose, CA">
+                    <input class="w3-input w3-border" type="text" th:field="*{pickUp}" id="city" name="city" placeholder="San Jose, CA" required>
                 </div>
                 <div class="w3-half">
                     <label for="city"><i class="fa fa-map-marker"></i> Drop Off Location</label>
-                    <input class="w3-input w3-border" type="text" id="city" name="city" placeholder="Los Angeles, CA">
+                    <input class="w3-input w3-border" type="text" th:field="*{dropOff}" id="city" name="city" placeholder="Los Angeles, CA" required>
                 </div>
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="drop-off">
-                <label for="vehicle1"> Drop off at the same location</label><br>
-
+                <div class="w3-half">
+                    <label class="pickup">Pick-Up Date</label><br>
+                    <input type="date" th:field="*{startDate}" class="form-control" name="start_date" placeholder="Pick-up date" required>
+                </div>
+                <div class="w3-half">
+                    <label class="dropoff">Drop-Off Date</label><br>
+                    <input type="date" th:field="*{endDate}" class="form-control" name="end_date" placeholder="Drop-off date" required>
+                </div>
             </div>
-            <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
-            <button><a href="home">Go to search page</a></button>
+            <p><button class="w3-button w3-dark-grey" type="submit">Search</button></p>
+            </form>
         </div>
 
 <!--        <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink">-->

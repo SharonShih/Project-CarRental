@@ -1,7 +1,7 @@
 package com.example.demo_car_rental.controller;
 
 import com.example.demo_car_rental.model.AvailableCar;
-import com.example.demo_car_rental.service.RentDateService;
+import com.example.demo_car_rental.service.RentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 public class Index {
+	/*
     @Autowired
     private RentDateService rentDateService;
 
@@ -27,5 +28,5 @@ public class Index {
         List<AvailableCar> availableCars = rentDateService.checkAvailableCars(startDate, endDate);
         model.addAttribute("availableCars", availableCars);
         return "index";
-    }
+    }*/
 }

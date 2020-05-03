@@ -3,11 +3,9 @@ package com.example.demo_car_rental.model;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,13 +37,9 @@ public class Car implements Serializable {
     @Column(name = "url", length = 150)
     private String url;
 
-/*
-    //@ManyToMany(fetch = FetchType.LAZY, mappedBy = "cars")
-    private List<Customer> customers = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "car")
+    private List<Rent> rentDates = new ArrayList<>();
 
-    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "car")
-    private List<RentDate> rentDates = new ArrayList<>();
-*/
     public Long getId() {
         return id;
     }
@@ -77,20 +71,12 @@ public class Car implements Serializable {
     public void setUrl(String url) {
     	this.url = url;
     }
-/*
-    public List<Customer> getCustomers() {
-        return customers;
-    }
 
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
-    }
-
-    public List<RentDate> getRentDates() {
+    public List<Rent> getRentDates() {
         return rentDates;
     }
 
-    public void setRentDates(List<RentDate> rentDates) {
+    public void setRentDates(List<Rent> rentDates) {
         this.rentDates = rentDates;
-    }*/
+    }
 }
