@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class AvailableCar implements Serializable {
     private static final long serialVersionUID = 3209915747110932732L;
 
-    public AvailableCar(int id, int carId, String carName, int carPrice) {
+    public AvailableCar(int id, Long carId, String carName, int carPrice) {
         this.id = id;
         this.carId = carId;
         this.carName = carName;
@@ -14,7 +14,7 @@ public class AvailableCar implements Serializable {
     }
 
     private int id;
-    private int carId;
+    private Long carId;
     private String carName;
     private int carPrice;
 
@@ -26,11 +26,11 @@ public class AvailableCar implements Serializable {
         this.id = id;
     }
 
-    public int getCarId() {
+    public Long getCarId() {
         return carId;
     }
 
-    public void setCarId(int carId) {
+    public void setCarId(Long carId) {
         this.carId = carId;
     }
 

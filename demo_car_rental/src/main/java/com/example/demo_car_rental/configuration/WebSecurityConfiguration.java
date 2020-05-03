@@ -40,13 +40,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signup").permitAll()
                 .antMatchers("/welcome").permitAll()
-                .antMatchers("/booking").hasAuthority("USER").anyRequest()
+                .antMatchers("/booking").permitAll();
+                //.antMatchers("/booking").hasAuthority("USER").anyRequest()
                 //.antMatchers("/admin/**").hasAuthority("ADMIN").anyRequest()
-                .authenticated().and().csrf().disable().formLogin()
-                .loginPage("/login").failureUrl("/login?error=true")
-                .defaultSuccessUrl("/welcome")
-                .usernameParameter("username")
-                .passwordParameter("password");
+                //.authenticated().and().csrf().disable().formLogin()
+                //.loginPage("/login").failureUrl("/login?error=true")
+                //.defaultSuccessUrl("/welcome")
+                //.usernameParameter("username")
+                //.passwordParameter("password");
     }
 
     @Override

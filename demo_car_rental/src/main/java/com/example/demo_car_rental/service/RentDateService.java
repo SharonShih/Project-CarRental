@@ -9,7 +9,7 @@ import java.util.List;
 
 
 public interface RentDateService {
-    List<AvailableCar> checkAvailableCarById(Calendar startDate, Calendar endDate, Long id);
+    List<AvailableCar> checkAvailableCarById(Calendar startDate, Calendar endDate, Long carId);
 
     List<AvailableCar> checkAvailableCars(Calendar startDate, Calendar endDate);
 

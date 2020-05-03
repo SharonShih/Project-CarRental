@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo_car_rental.model.Car;
@@ -56,10 +57,15 @@ public class Car_controller {
     public String welcome() {
         return "welcome_page";
     }
-
+    
     @GetMapping("/booking")
-    public String booking() {
-        return "booking_page";
+    @ResponseBody
+    public ModelAndView booking(@RequestParam Long id) {
+    	ModelAndView modelAndView = new ModelAndView();
+        Car car = carService.findById(id);
+        modelAndView.addObject("car", car);
+    	modelAndView.setViewName("booking_page");
+        return modelAndView;
     }
     
     @RequestMapping(value="/login", method = RequestMethod.GET)

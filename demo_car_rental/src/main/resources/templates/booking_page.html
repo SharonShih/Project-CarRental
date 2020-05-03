@@ -122,9 +122,8 @@
         <div class="container">
             <h3><b>Booking Cart </b><i class="fa fa-shopping-cart"></i><span class="price" style="color:black"> </span></h3>
 
-            <img src="https://cars.usnews.com/static/images/Auto/izmo/i9858255/2017_nissan_rogue_angularfront.jpg"
-                      alt="suv_rogue" width="10%">
-            <p><a href="#">SUV 5 Passengers Seat </a> <span class="price">$115/per day</span></p>
+            <img th:src="${car.url}" th:alt="${car.name}" width="10%">
+            <p><th:block th:text="${car.name}">name </th:block> <span class="price">$<th:block th:text="${car.price}">price</th:block>/per day</span></p>
 
             <p>
                 <text>Booking dates: 5/1/2020 - 5/4-2020</text>

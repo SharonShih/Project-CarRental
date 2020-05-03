@@ -24,8 +24,8 @@ public class Car implements Serializable {
 
     @Id
     @Column(name = "car_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @NotNull
     @Size(min = 1, max = 100)
@@ -46,11 +46,11 @@ public class Car implements Serializable {
     //@OneToMany(fetch = FetchType.LAZY, mappedBy = "car")
     private List<RentDate> rentDates = new ArrayList<>();
 */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
