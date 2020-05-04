@@ -28,11 +28,19 @@ public class Customer implements Serializable {
     @Column(name = "password", length = 60)
     private String password;
 
-    @Size(min = 2, max = 50)
-    @Column(name = "fullName", length = 50)
-    private String fullName;
+    @Size(min = 2, max = 30)
+    @Column(name = "first_name", length = 30)
+    private String firstName;
+    
+    @Size(min = 2, max = 30)
+    @Column(name = "last_name", length = 30)
+    private String lastName;
+    
+    @Size(min = 5, max = 50)
+    @Column(name = "email", length = 50)
+    private String email;
 
-    @Column(name = "rent_car")
+	@Column(name = "rent_car")
     private int rentCars;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
@@ -62,13 +70,29 @@ public class Customer implements Serializable {
         this.password = password;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
+    
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
     public List<Rent> getRents() {
         return rents;

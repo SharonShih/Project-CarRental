@@ -6,16 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import com.example.demo_car_rental.model.Car;
 import com.example.demo_car_rental.model.Customer;
+import com.example.demo_car_rental.model.Rent;
 import com.example.demo_car_rental.model.TempRent;
 import com.example.demo_car_rental.service.CarService;
 import com.example.demo_car_rental.service.CustomerService;
@@ -45,7 +43,6 @@ public class Car_controller {
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        //Customer customer = customerService.findByUsername(auth.getName());
     	List<Car> cars = (List<Car>) carService.findAll();
     	modelAndView.addObject("cars", cars);
     	modelAndView.addObject("name", auth.getName());
@@ -71,13 +68,43 @@ public class Car_controller {
     @ResponseBody
     public ModelAndView booking(@RequestParam Long id, HttpSession session) {
     	ModelAndView modelAndView = new ModelAndView();
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	TempRent tempRent = (TempRent)session.getAttribute("tempRent");
+    	Customer customer = customerService.findByUsername(auth.getName());
         Car car = carService.findById(id);
+
         tempRent.setPrice(car.getPrice());
+        
     	modelAndView.addObject("tempRent", tempRent);
+    	modelAndView.addObject("rent", new Rent());
+    	modelAndView.addObject("customer", customer);
         modelAndView.addObject("car", car);
     	modelAndView.setViewName("booking_page");
         return modelAndView;
+    }
+    
+    @RequestMapping(value="/booking", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView getRent(@RequestParam Long id, @ModelAttribute("rent") Rent rent, HttpSession session) {
+    	ModelAndView modelAndView = new ModelAndView();
+    	TempRent tempRent = (TempRent)session.getAttribute("tempRent");
+    	modelAndView.addObject("rent", rent);
+        modelAndView.setViewName("redirect:/welcome");
+        if(rent.isValid()) {
+        	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        	Customer customer = customerService.findByUsername(auth.getName());
+            Car car = carService.findById(id);
+            if(car != null)
+            	rent.setCar(car);
+            if(customer != null)
+            	rent.setCustomer(customer);
+        	rent.setStartDate(tempRent.getStartDate());
+        	rent.setEndDate(tempRent.getEndDate());
+        	rent.setPickUp(tempRent.getPickUp());
+        	rent.setDropOff(tempRent.getDropOff());
+        	rentService.save(rent);
+        }
+    	return modelAndView;
     }
     
     @RequestMapping(value="/login", method = RequestMethod.GET)

@@ -37,7 +37,7 @@
             border-radius: 5px;
             background-color: #f2f2f2;
             /*padding: 20px 0 30px 0;*/
-            height: 360px;
+            height: 500;
         }
 
         /* style inputs and link buttons */
@@ -87,8 +87,6 @@
             background-color: #45a049;
         }
 
-
-
         /* Two-column layout */
         .col {
             float: left;
@@ -96,6 +94,16 @@
             margin: auto;
             padding: 0 50px;
             margin-top: 6px;
+        }
+
+        .col-50-left {
+            float: left;
+            width: 49%;
+        }
+
+        .col-50-right {
+            float: right;
+            width: 49%;
         }
 
         /* Clear floats after the columns */
@@ -189,7 +197,11 @@
                     <div class="hide-md-lg">
                         <p>Or sign in manually:</p>
                     </div>
-
+                    <div class="row">
+                        <div class="col-50-left"><input type="text" th:field="*{firstName}" name="firstName" placeholder="First Name" required></div>
+                        <div class="col-50-right"><input type="text" th:field="*{lastName}" name="lastName" placeholder="Last Name" required></div>
+                    </div>
+                    <input type="text" th:field="*{email}" name="email" placeholder="Email" required>
                     <input type="text" th:field="*{username}" name="username" placeholder="Username" required>
                     <input type="password" th:field="*{password}" name="password" placeholder="Password" required>
                     <input type="submit" value="Sign up">
