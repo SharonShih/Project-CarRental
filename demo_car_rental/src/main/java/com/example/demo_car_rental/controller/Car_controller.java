@@ -87,9 +87,9 @@ public class Car_controller {
     @ResponseBody
     public ModelAndView getRent(@RequestParam Long id, @ModelAttribute("rent") Rent rent, HttpSession session) {
     	ModelAndView modelAndView = new ModelAndView();
+    	modelAndView.setViewName("redirect:/welcome");
     	TempRent tempRent = (TempRent)session.getAttribute("tempRent");
     	modelAndView.addObject("rent", rent);
-        modelAndView.setViewName("redirect:/welcome");
         if(rent.isValid()) {
         	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         	Customer customer = customerService.findByUsername(auth.getName());
@@ -102,8 +102,21 @@ public class Car_controller {
         	rent.setEndDate(tempRent.getEndDate());
         	rent.setPickUp(tempRent.getPickUp());
         	rent.setDropOff(tempRent.getDropOff());
-        	rentService.save(rent);
+        	Rent result = rentService.save(rent);
+        	modelAndView.setViewName("redirect:/receipt?id=" + result.getId());
         }
+    	return modelAndView;
+    }
+    
+    @RequestMapping(value="/receipt", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView receipt(@RequestParam Integer id) {
+    	ModelAndView modelAndView = new ModelAndView();
+    	Rent rent = rentService.findByRentId(id);
+    	Customer customer = rent.getCustomer();
+    	modelAndView.addObject("rent", rent);
+    	modelAndView.addObject("customer", customer);
+    	modelAndView.setViewName("receipt_page");
     	return modelAndView;
     }
     

@@ -8,10 +8,12 @@ import java.util.List;
 public interface RentService {
 
     List<Rent> findAll();
+    
+    Rent findByRentId(int id);
 
     Rent findByCustomerId(Long id);
 
     Rent findByCarId(Long id);
 
-    void save(Rent rent);
+    Rent save(Rent rent);
 }

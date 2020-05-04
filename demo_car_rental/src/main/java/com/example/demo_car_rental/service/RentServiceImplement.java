@@ -14,6 +14,11 @@ public class RentServiceImplement implements RentService {
     public RentServiceImplement(RentDAO rentDAO){
         this.rentDAO = rentDAO;
     }
+    
+    @Override
+    public Rent findByRentId(int id) {
+    	return this.rentDAO.findById(id);
+    }
 
     @Override
     public Rent findByCustomerId(Long id){
@@ -31,8 +36,8 @@ public class RentServiceImplement implements RentService {
     }
 
     @Override
-    public void save(Rent rent){
-        this.rentDAO.save(rent);
+    public Rent save(Rent rent){
+        return this.rentDAO.save(rent);
     }
 
 }
