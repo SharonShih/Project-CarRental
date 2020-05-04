@@ -17,7 +17,10 @@
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
     <a href="welcome" class="w3-bar-item w3-button w3-text-blue w3-hover-blue"><b><i class="fa fa-car w3-margin-right"></i>Car Rental.com</b></a>
     <div href="#" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><i class="fa fa-search"></i></div>
-    <a href="login" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><b><i class="fa fa-lock w3-margin-right"></i>Sign In</b></a>
+    <div th:switch="${isLogged}">
+    <a th:case="true" href="logout" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><b><i class="fa fa-lock w3-margin-right"></i>logout</b></a>
+    <a th:case="*" href="login" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey"><b><i class="fa fa-lock w3-margin-right"></i>Sign In</b></a>
+    </div>
 </div>
 <!--<div class="w3-bar w3-white w3-border-bottom w3-xlarge">-->
 <!--    <a href="#" class="w3-bar-item w3-button w3-text-blue w3-hover-blue"><b><i class="fa fa-map-marker w3-margin-right"></i>Car Rental.com</b></a>-->

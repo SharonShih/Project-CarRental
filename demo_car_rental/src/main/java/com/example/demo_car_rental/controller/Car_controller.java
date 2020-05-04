@@ -44,6 +44,7 @@ public class Car_controller {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	List<Car> cars = (List<Car>) carService.findAll();
+    	modelAndView.addObject("isLogged", isLogged());
     	modelAndView.addObject("cars", cars);
     	modelAndView.addObject("name", auth.getName());
     	modelAndView.setViewName("home_page");
@@ -54,6 +55,7 @@ public class Car_controller {
     public ModelAndView welcome() {
     	ModelAndView modelAndView = new ModelAndView();
     	modelAndView.addObject("tempRent", new TempRent());
+    	modelAndView.addObject("isLogged", isLogged());
     	modelAndView.setViewName("welcome_page");
         return modelAndView;
     }
@@ -147,5 +149,10 @@ public class Car_controller {
             modelAndView.setViewName("signup_page");
         }
         return modelAndView;
+    }
+    
+    public static boolean isLogged(){
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return null != authentication && !("anonymousUser").equals(authentication.getName());
     }
 }
