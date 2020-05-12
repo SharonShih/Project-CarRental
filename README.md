@@ -3,9 +3,9 @@
 
 ## Table of Content
 - [Project Overview](#project-overview)
-  - [Welcome Page](#WelcomePage)
-  - [Search/home Page](#Search/homePage)
-  - [Confirm Page](#ConfirmPage)
+  - [Welcome Page](#welcome-page)
+  - [Search/home Page](#searchhome-page)
+  - [Confirm Page](#confirm-page)
 - [Setup Localhost](#setup-localhost)
 - [Team Members & Contribution](#team-members--contribution)
 
