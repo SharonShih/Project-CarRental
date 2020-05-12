@@ -2,24 +2,25 @@
 :star: Star us on GitHub!
 
 ## Table of Content
-- [Project Overview](#ProjectOverview)
+- [Project Overview](#project-overview)
   - [Welcome Page](#WelcomePage)
   - [Search/home Page](#Search/homePage)
   - [Confirm Page](#ConfirmPage)
-- [Setup Localhost](#SetupLocalhost)
+- [Setup Localhost](#setup-localhost)
+- [Team Members & Contribution](#team-members--contribution)
 
 ## Project Overview
 **CarRental.com** is a simplecar rental system. Our goal is to simplify the process of renting cars.
 
-- Welcome Page
+### Welcome Page
 ![](demo_car_rental/img/welcome-screen.png)
 
 The car rental platform has become an exciting startup option and has a place in the world. Users who want to rent a car can search for the car according to their needs and rent the car after providing the necessary details and payment. The goal of our project is that the process of registering a "car rental" takes only a few seconds. The user only needs to fill in personal information and select a car(s) to fulfill the entire process.
 
-- Search/home Page
+### Search/home Page
 ![](demo_car_rental/img/search-screen.png)
 
-- Confirm Page
+### Confirm Page
 ![](demo_car_rental/img/confirm.png)
 
 
